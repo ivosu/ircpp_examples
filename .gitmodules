@@ -1,0 +1,3 @@
+[submodule "ircpp"]
+	path = ircpp
+	url = git@github.com:ivosu/ircpp.git
