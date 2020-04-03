@@ -8,8 +8,7 @@ std::string get_user_name_private_message(const irc::message& message) {
 	if (display_name_it != tags.end() && display_name_it->second.has_value() &&
 		!display_name_it->second.value().empty()) {
 		return display_name_it->second.value();
-	}
-	else {
+	} else {
 		return message.prefix().value().main();
 	}
 }
@@ -33,7 +32,7 @@ int main() {
 	// join given channel
 	client.send_message(irc::message::join_message({channel})).wait();
 	std::cout << "CHAT:" << std::endl;
-	while(true) {
+	while (true) {
 		irc::message msg = client.read_message();
 		if (msg.command() == "PRIVMSG") {
 			std::string sender = get_user_name_private_message(msg);
